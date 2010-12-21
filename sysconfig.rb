@@ -1,7 +1,5 @@
+require 'rubygems'
 require 'mongrel'
-
-$Template_name = 'default'
-$Template = File.readlines('themes/'+$Template_name+'/index.html').join
 
 class Sysconfig < Mongrel::HttpHandler
   def process(request, response)
@@ -12,8 +10,13 @@ class Sysconfig < Mongrel::HttpHandler
     end
   end
   
+  def initialize(theme="default")
+    puts "===Starting Sysconfig-ruby with template: #{theme}"
+    @template = File.readlines("themes/#{theme}/index.html").join
+  end
+  
   def prepare_output
-    template = $Template.clone
+    template = @template.clone
     vars = template.scan(/%.+?%/)
     vars.each do |var|
       output = eval(var[1..-2].downcase)
@@ -23,11 +26,17 @@ class Sysconfig < Mongrel::HttpHandler
   end
   
   def reset_vars
-    @var_filesystems=nil
+    @var_filesystems = nil
   end
 end
 
 require 'commands'
-s = Mongrel::HttpServer.new("0.0.0.0","1234")
-s.register("/",Sysconfig.new)
-s.run.join
+ARGV.collect! {|arg| arg.to_s}
+ARGV[0] ||= "1234"
+ARGV[1] ||= "default"
+ARGV[2] ||= "0.0.0.0"
+web_server = Mongrel::HttpServer.new(ARGV[2],ARGV[0])
+puts "===Starting Mongrel Http Server on #{ARGV[2]}, port #{ARGV[0]}"
+application = Sysconfig.new(ARGV[1])
+web_server.register("/",application)
+web_server.run.join
