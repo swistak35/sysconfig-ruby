@@ -1,0 +1,40 @@
+================================================================
+===========================          ===========================
+======================== SYSCONFIG-RUBY ========================
+===========================          ===========================
+================================================================
+
+
+
+1. Info
+2. Installation
+3. Starting
+4. Themes
+5. Plugins
+----------------------------------------------------------------
+
+1. System config and info written in Ruby. Project is available on Github - Sysconfig-ruby.
+----------------------------------------------------------------
+
+2. I tested it on:
+  * Ruby 1.8.7 with Mongrel 1.1.5
+  
+I recommend Ruby 1.8.7 : )
+----------------------------------------------------------------
+
+3. If you have ruby and mongrel now, you should only run script:
+  ruby sysconfig.rb Template_name Port Host
+example:
+  ruby sysconfig.rb 1234 default 0.0.0.0
+
+But if you run script without arguments, it also will work!
+Default port: 1234
+Default theme: default
+Default host: 0.0.0.0
+----------------------------------------------------------------
+
+4. If you want (Yes, you want) more themes, you can find them on github - search sysconfig-ruby-themes ; ]
+----------------------------------------------------------------
+
+5. Oops. Not implemented yet.
+----------------------------------------------------------------
