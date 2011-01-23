@@ -17,8 +17,6 @@ h2. (2) Installation
 
 I tested it on:
   * Ruby 1.8.7 with Mongrel 1.1.5
-  
-----------------------------------------------------------------
 
 h2. (3) Starting
 
@@ -31,10 +29,7 @@ But if you run script without arguments, it also will work!
 Default port: 1234
 Default theme: default
 Default host: 0.0.0.0
-----------------------------------------------------------------
 
 h2. (4) Themes
 
 All themes are in `themes` directory in this project. If you want, you can send me your theme : )
-----------------------------------------------------------------
-
