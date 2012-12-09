@@ -138,7 +138,7 @@ class Sysconfig
   
   #Filesystem type, ex. "ext3"
   def filesystem_type(name)
-    filesystem_search(name,1)
+    filesystem_search name, 1
   end
   
   #Filesystem total size, ex. "19G"
@@ -188,46 +188,9 @@ class Sysconfig
   
 end
 
+  #TODO:
   # Networking
   #@server_ifconfig = %x[/sbin/ifconfig]
-  # Hard Disk
-  #@server_partitions= %x[df -h |wc -l]
-  #@hard_disk_usage = %x[df -h]
-
-    # For Fedora & RedHat Based...
-    #@startup_services_count = %x[/sbin/chkconfig --list |grep :on |wc -l]
-    #@startup_services = %x[/sbin/chkconfig --list |grep :on]
-
-    # Server Last Login
-    #@server_last_login_count = %x[last |grep pts |wc -l]
-    #@server_last_login = %x[last |grep pts]
-
-    # Server Processes
-    #@server_processes_count = %x[top -n 1 -b |wc -l]
-    #@server_processes = %x[top -n 1 -b]
-
-    # Processes Tree - Fedora & RedHat Based...
-    #@server_process_tree_count = %x[pstree -p |wc -l]
-    #@server_process_tree = %x[pstree -p]
-
-    # Linux Users 
-    #@server_users_count = %x[cat /etc/passwd | wc -l]
-    #@server_users = %x[cat /etc/passwd]
-
-    # Linux Groups
-    #@server_groups_count = %x[cat /etc/group | wc -l]
-    #@server_groups = %x[cat /etc/group]
-
-    # Server Errors 
-    #@server_errors_count = %x[cat /var/log/messages | grep error |wc -l]
-    #@server_errors = %x[cat /var/log/messages | grep error]
-
-    # Server Alerts 
-    #@server_alerts_count = %x[cat /var/log/messages | grep alert |wc -l]
-    #@server_alerts = %x[cat /var/log/messages | grep alert]
-
-    # Server Panics 
-    #@server_panics_count = %x[cat /var/log/messages | grep panic |wc -l]
-    #@server_panics = %x[cat /var/log/messages | grep panic]
-#end
-
+  # Server Processes -> top mem & top cpu processes.
+  #@server_processes_count = %x[top -n 1 -b |wc -l]
+  #@server_processes = %x[top -n 1 -b]
